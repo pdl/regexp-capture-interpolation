@@ -1,0 +1,29 @@
+{
+  "name": "regexp-capture-interpolation",
+  "version": "0.1.0",
+  "description": "Interpolate a regular expression match into a replacement string",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/**/*.js"
+  },
+  "keywords": [
+    "regexp",
+    "regex",
+    "interpolation",
+    "interpolate",
+    "capture",
+    "match",
+    "replacement",
+    "substitution",
+    "$&",
+    "$`",
+    "$'",
+    "$1",
+    "$2"
+  ],
+  "author": "Daniel Perrett",
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "tape": "^4.6.3"
+  }
+}
