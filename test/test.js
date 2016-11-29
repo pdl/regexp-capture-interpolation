@@ -49,6 +49,40 @@ var suite = [
     "why"         : "Allow \\x{hhhh} to escape any number of characters",
     "replacement" : "\\x{a0a0}",
     "expected"    : "\u{a0a0}"
+  },
+  {
+    "why"         : "Allow \\x{hhhh} to escape any number of characters",
+    "replacement" : "\\x{a0a0}",
+    "expected"    : "\u{a0a0}"
+  },
+  {
+    "why"         : "$& should return match",
+    "matchObject" : ["bc", "b", 1, "abcd"],
+    "replacement" : "$&",
+    "expected"    : "bc"
+  },
+  {
+    "why"         : "$` should return prematch",
+    "matchObject" : ["bc", "b", 1, "abcd"],
+    "replacement" : "$`",
+    "expected"    : "a"
+  },
+  {
+    "why"         : "$' should return postmatch",
+    "matchObject" : ["bc", "b", 1, "abcd"],
+    "replacement" : "$'",
+    "expected"    : "d"
+  },
+  {
+    "why"         : "$` and $' should return empty string when whole string is matched",
+    "matchObject" : ["abcd", 0, "abcd"],
+    "replacement" : "$`$'",
+    "expected"    : ""
+  },
+  {
+    "why"         : "$foo should return $foo",
+    "replacement" : "$foo",
+    "expected"    : "$foo"
   }
 ];
 
@@ -56,7 +90,7 @@ for (var i = 0; i < suite.length; i++) {
   var c = suite[i];
   test (c.why || c.replacement, function (t) {
     var interp = Interpolator;
-    t.is(interp.interpolateReplacement(c.matchObject || [], c.replacement), c.expected);
+    t.is(interp.interpolate(c.matchObject || [], c.replacement), c.expected);
     t.end();
   });
 }
