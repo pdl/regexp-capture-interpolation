@@ -25,5 +25,9 @@
   "license": "BSD-3-Clause",
   "devDependencies": {
     "tape": "^4.6.3"
+  },
+  "repository": {
+    "type" : "git",
+    "url"  : "https://github.com/pdl/regexp-capture-interpolation.git"
   }
 }
