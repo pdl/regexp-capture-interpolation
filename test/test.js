@@ -10,7 +10,7 @@ var suite = [
   },
   {
     "why"         : "Can interpolate $1, $2",
-    "matchObject" : ["foo, bar", "foo", "bar"],
+    "matchObject" : ["foo, bar", "foo", "bar", 0, "foo, bar\n"],
     "replacement" : "$2$1",
     "expected"    : {
       interpolate       : "barfoo",
@@ -20,7 +20,7 @@ var suite = [
   },
   {
     "why"         : "Can interpolate \\1, \\2",
-    "matchObject" : ["foo, bar", "foo", "bar"],
+    "matchObject" : ["foo, bar", "foo", "bar", 0, "foo, bar\n"],
     "replacement" : "\\2\\1",
     "expected"    : {
       interpolate       : "barfoo",
@@ -30,7 +30,7 @@ var suite = [
   },
   {
     "why"         : "Can escape $ with \\",
-    "matchObject" : ["foo, bar", "foo", "bar"],
+    "matchObject" : ["foo, bar", "foo", "bar", 0, "foo, bar\n"],
     "replacement" : "\\$2$1",
     "expected"    : {
       interpolate       : "$2foo",
@@ -40,7 +40,7 @@ var suite = [
   },
   {
     "why"         : "Can escape $ with $",
-    "matchObject" : ["foo, bar", "foo", "bar"],
+    "matchObject" : ["foo, bar", "foo", "bar", 0, "foo, bar\n"],
     "replacement" : "$$2$1",
     "expected"    : {
       interpolate       : "$2foo",
@@ -50,7 +50,7 @@ var suite = [
   },
   {
     "why"         : "escaped \\ before $ does not escape",
-    "matchObject" : ["foo, bar", "foo", "bar"],
+    "matchObject" : ["foo, bar", "foo", "bar", 0, "foo, bar\n"],
     "replacement" : "\\\\$2\\\\\\$1",
     "expected"    : {
       interpolate       : "\\bar\\$1",
@@ -130,6 +130,16 @@ var suite = [
       interpolate       : "",
       interpolateDollar : "",
       interpolateSlash  : "$`$'"
+    }
+  },
+  {
+    "why"         : "$2 should be preserved if it does not exist",
+    "matchObject" : ["bc", "b", 1, "abcd"],
+    "replacement" : "$2",
+    "expected"    : {
+      interpolate       : "$2",
+      interpolateDollar : "$2",
+      interpolateSlash  : "$2"
     }
   },
   {
