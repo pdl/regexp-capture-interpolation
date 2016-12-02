@@ -22,7 +22,7 @@
     "$2"
   ],
   "author": "Daniel Perrett",
-  "license": "BSD-3-Clause",
+  "license": "MIT",
   "devDependencies": {
     "tape": "^4.6.3"
   },
