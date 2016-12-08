@@ -1,8 +1,8 @@
 {
   "name": "regexp-capture-interpolation",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Interpolate a regular expression match into a replacement string",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "tape test/**/*.js"
   },
